@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Scheme
+   LastUpgradeVersion = "1520"
+   version = "1.7">
+   <BuildAction
+      parallelizeBuildables = "YES"
+      buildImplicitDependencies = "YES">
+      <PostActions>
+         <ExecutionAction
+            ActionType = "Xcode.IDEStandardExecutionActionsCore.ExecutionActionType.ShellScriptAction">
+            <ActionContent
+               title = "Run Script"
+               scriptText = "#!/usr/bin/env bash&#10;&#10;cd ${PROJECT_DIR}&#10;&#10;PROJECT_NAME=&quot;testFramework&quot;&#10;PROJECT_FILE=&quot;${PROJECT_NAME}.xcodeproj/project.pbxproj&quot;&#10;&#10;&#10;# Find current project version&#10;BUILD_NUMBER=$(grep &quot;CURRENT_PROJECT_VERSION&quot; ${PROJECT_FILE} | tail -n 1 |  cut -d = -f 2 | cut -d &quot;;&quot; -f 1)&#10;&#10;# current project version +1&#10;BUILD_NUMBER=$((BUILD_NUMBER+1))&#10;#echo &quot;hey $BUILD_NUMBER&quot;&#10;&#10;sed -i &apos;.backup&apos; &quot;s/CURRENT_PROJECT_VERSION = .*/CURRENT_PROJECT_VERSION = ${BUILD_NUMBER};/g&quot; &quot;${PROJECT_FILE}&quot;&#10;#x=$(sed &quot;s/CURRENT_PROJECT_VERSION = .*/CURRENT_PROJECT_VERSION = $BUILD_NUMBER;/g&quot; &quot;$PROJECT_FILE&quot;)&#10;#xx=$(echo &quot;$x&quot; | grep &quot;CURRENT_PROJECT_VERSION&quot;)&#10;#echo &quot;${xx}&quot;&#10;"
+               shellToInvoke = "/bin/bash">
+               <EnvironmentBuildable>
+                  <BuildableReference
+                     BuildableIdentifier = "primary"
+                     BlueprintIdentifier = "BFE6B7D52BF2388200107B32"
+                     BuildableName = "testFramework.framework"
+                     BlueprintName = "testFramework"
+                     ReferencedContainer = "container:testFramework.xcodeproj">
+                  </BuildableReference>
+               </EnvironmentBuildable>
+            </ActionContent>
+         </ExecutionAction>
+      </PostActions>
+      <BuildActionEntries>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "BFE6B7D52BF2388200107B32"
+               BuildableName = "testFramework.framework"
+               BlueprintName = "testFramework"
+               ReferencedContainer = "container:testFramework.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+      </BuildActionEntries>
+   </BuildAction>
+   <TestAction
+      buildConfiguration = "Debug"
+      selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
+      selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
+      shouldUseLaunchSchemeArgsEnv = "YES"
+      shouldAutocreateTestPlan = "YES">
+   </TestAction>
+   <LaunchAction
+      buildConfiguration = "Debug"
+      selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
+      selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
+      launchStyle = "0"
+      useCustomWorkingDirectory = "NO"
+      ignoresPersistentStateOnLaunch = "NO"
+      debugDocumentVersioning = "YES"
+      debugServiceExtension = "internal"
+      allowLocationSimulation = "YES">
+   </LaunchAction>
+   <ProfileAction
+      buildConfiguration = "Release"
+      shouldUseLaunchSchemeArgsEnv = "YES"
+      savedToolIdentifier = ""
+      useCustomWorkingDirectory = "NO"
+      debugDocumentVersioning = "YES">
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "BFE6B7D52BF2388200107B32"
+            BuildableName = "testFramework.framework"
+            BlueprintName = "testFramework"
+            ReferencedContainer = "container:testFramework.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
+   </ProfileAction>
+   <AnalyzeAction
+      buildConfiguration = "Debug">
+   </AnalyzeAction>
+   <ArchiveAction
+      buildConfiguration = "Release"
+      revealArchiveInOrganizer = "YES">
+   </ArchiveAction>
+</Scheme>
