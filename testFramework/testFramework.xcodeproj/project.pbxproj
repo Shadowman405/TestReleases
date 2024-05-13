@@ -72,6 +72,7 @@
 				BFE6B7D22BF2388200107B32 /* Sources */,
 				BFE6B7D32BF2388200107B32 /* Frameworks */,
 				BFE6B7D42BF2388200107B32 /* Resources */,
+				BFE6B7E32BF24F9F00107B32 /* Bump cuurent project version script */,
 			);
 			buildRules = (
 			);
@@ -123,6 +124,27 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		BFE6B7E32BF24F9F00107B32 /* Bump cuurent project version script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Bump cuurent project version script";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/bash;
+			shellScript = "PROJECT_NAME=\"testFramework\"\nPROJECT_FILE=\"$PROJECT_NAME.xcodeproj/project.pbxproj\"\n\n\n# Find current project version\nBUILD_NUMBER=$(grep \"CURRENT_PROJECT_VERSION\" $PROJECT_FILE | tail -n 1 |  cut -d = -f 2 | cut -d \";\" -f 1)\n\n# current project version +1\nBUILD_NUMBER=$((BUILD_NUMBER+1))\n#echo \"hey $BUILD_NUMBER\"\n\nsed \"s/CURRENT_PROJECT_VERSION = .*/CURRENT_PROJECT_VERSION = $BUILD_NUMBER;/g\" \"$PROJECT_FILE\"\n#x=$(sed \"s/CURRENT_PROJECT_VERSION = .*/CURRENT_PROJECT_VERSION = $BUILD_NUMBER;/g\" \"$PROJECT_FILE\")\n#xx=$(echo \"$x\" | grep \"CURRENT_PROJECT_VERSION\")\n#echo \"${xx}\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		BFE6B7D22BF2388200107B32 /* Sources */ = {
