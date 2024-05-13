@@ -142,7 +142,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/bash;
-			shellScript = "PROJECT_NAME=\"testFramework\"\nPROJECT_FILE=\"$PROJECT_NAME.xcodeproj/project.pbxproj\"\n\n\n# Find current project version\nBUILD_NUMBER=$(grep \"CURRENT_PROJECT_VERSION\" $PROJECT_FILE | tail -n 1 |  cut -d = -f 2 | cut -d \";\" -f 1)\n\n# current project version +1\nBUILD_NUMBER=$((BUILD_NUMBER+1))\n#echo \"hey $BUILD_NUMBER\"\n\nsed \"s/CURRENT_PROJECT_VERSION = .*/CURRENT_PROJECT_VERSION = $BUILD_NUMBER;/g\" \"$PROJECT_FILE\"\n#x=$(sed \"s/CURRENT_PROJECT_VERSION = .*/CURRENT_PROJECT_VERSION = $BUILD_NUMBER;/g\" \"$PROJECT_FILE\")\n#xx=$(echo \"$x\" | grep \"CURRENT_PROJECT_VERSION\")\n#echo \"${xx}\"\n";
+			shellScript = "#!/usr/bin/env bash\n\nPROJECT_NAME=\"testFramework\"\nPROJECT_FILE=\"$PROJECT_NAME.xcodeproj/project.pbxproj\"\n\n\n# Find current project version\nBUILD_NUMBER=$(grep \"CURRENT_PROJECT_VERSION\" $PROJECT_FILE | tail -n 1 |  cut -d = -f 2 | cut -d \";\" -f 1)\n\n# current project version +1\nBUILD_NUMBER=$((BUILD_NUMBER+1))\n#echo \"hey $BUILD_NUMBER\"\n\nsed \"s/CURRENT_PROJECT_VERSION = .*/CURRENT_PROJECT_VERSION = $BUILD_NUMBER;/g\" \"$PROJECT_FILE\"\n#x=$(sed \"s/CURRENT_PROJECT_VERSION = .*/CURRENT_PROJECT_VERSION = $BUILD_NUMBER;/g\" \"$PROJECT_FILE\")\n#xx=$(echo \"$x\" | grep \"CURRENT_PROJECT_VERSION\")\n#echo \"${xx}\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
